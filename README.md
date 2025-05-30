@@ -1,3 +1,6 @@
+## 项目介绍
+使用Langchian实现Rag，Python MCP SDK 实现本地化Agent
+
 ## 安装依赖
 安装mysql，在terminal运行：
 `sudo apt install -y mysql-server-8.0`
