@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#06b6d4',
+                        secondary: '#0891b2'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="h-full  text-gray-700">
+    <div class="flex h-full">
+
+
+        <!-- Chat List -->
+        <aside class="w-80 bg-green-100 border-r border-gray-100">
+            <div class="p-4">
+                <div class="relative">
+                    <input type="search" placeholder="Search"
+                        class="w-full bg-gray-100 rounded-xl py-2 pl-10 pr-4 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <svg class="w-5 h-5 text-gray-700 absolute left-3 top-2.5" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="overflow-y-auto h-[calc(100vh-5rem)]">
+                <div class="px-2 space-y-1">
+                    <div class="p-3 rounded-xl bg-primary bg-opacity-20 flex items-center gap-3">
+                        <div
+                            class="w-12 h-12 bg-gray-800 rounded-xl flex items-center justify-center text-2xl font-bold">
+                            DC</div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-semibold text-primary">Design chat</h3>
+                                <span class="text-xs text-gray-400">4m</span>
+                            </div>
+                            <p class="text-sm text-gray-400 truncate">i love you mahn</p>
+                        </div>
+                    </div>
+
+                    <!-- More chat items -->
+                    <div class="p-3 rounded-xl hover:bg-gray-200 flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-xl overflow-hidden">
+                            <img src="https://res.cloudinary.com/djv4xa6wu/image/upload/v1737831467/abhiraj_tdwxdf.webp"
+                                alt="User" class="w-full h-full object-cover" />
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-semibold">Abhi</h3>
+                                <span class="text-xs text-gray-400">20m</span>
+                            </div>
+                            <p class="text-sm text-gray-400 truncate">Hey! We are ready to start...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat -->
+
+        <main class="flex-1 flex flex-col bg-green-50">
+            <header class="p-4 border-b border-gray-300 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <h1 class="text-xl font-bold">Design chat</h1>
+                    <span class="text-sm text-gray-400">23 members, 10 online</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="group relative cursor-pointer py-2">
+                        <select id="mode" name="mode"
+                            class="w-full h-10 border-2 border-green-200 focus:outline-none focus:border-green-300 text-green-500 rounded px-2 md:px-3 py-0 md:py-1 tracking-wider">
+                            <option value="0" selected="">RAG</option>
+                            <option value="1">Agent</option>
+                        </select>
+                    </div>
+                </div>
+            </header>
+
+            <div class="flex overflow-y-auto p-4 space-y-6">
+                <div class="h-screen dark:bg-gray-700 bg-gray-200 pt-12">
+                
+                    <!-- Card start -->
+                    <div class="max-w-sm mx-auto bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-lg">
+                        <div class="border-b px-4 pb-6">
+                            <div class="text-center my-4">
+                                <img class="h-32 w-32 rounded-full border-4 border-white dark:border-gray-800 mx-auto my-4"
+                                    src="https://randomuser.me/api/portraits/women/21.jpg" alt="">
+                                <div class="py-2">
+                                    <h3 class="font-bold text-2xl text-gray-800 dark:text-white mb-1">Cait Genevieve</h3>
+                                    <div class="inline-flex text-gray-700 dark:text-gray-300 items-center">
+                                        <svg class="h-5 w-5 text-gray-400 dark:text-gray-600 mr-1" fill="currentColor"
+                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                            <path class=""
+                                                d="M5.64 16.36a9 9 0 1 1 12.72 0l-5.65 5.66a1 1 0 0 1-1.42 0l-5.65-5.66zm11.31-1.41a7 7 0 1 0-9.9 0L12 19.9l4.95-4.95zM12 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+                                        </svg>
+                                        New York, NY
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2 px-2">
+                                <button onclick="addToInputText('操作系统故障属于几级故障')"
+                                    class="flex-1 rounded-full bg-blue-600 dark:bg-blue-800 text-white dark:text-white antialiased font-bold hover:bg-blue-800 dark:hover:bg-blue-900 px-4 py-2">
+                                    Follow
+                                </button>
+                                <button onclick="addToInputText('操作系统故障属于几级故障')"
+                                    class="flex-1 rounded-full border-2 border-gray-400 dark:border-gray-700 font-semibold text-black dark:text-white px-4 py-2">
+                                    Message
+                                </button>
+                            </div>
+                        </div>
+                        <div class="px-4 py-4">
+                            <div class="flex gap-2 items-center text-gray-800 dark:text-gray-300 mb-4">
+                                <svg class="h-6 w-6 text-gray-600 dark:text-gray-400" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                    <path class=""
+                                        d="M12 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9 11a1 1 0 0 1-2 0v-2a3 3 0 0 0-3-3H8a3 3 0 0 0-3 3v2a1 1 0 0 1-2 0v-2a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v2z" />
+                                </svg>
+                                <span><strong class="text-black dark:text-white">12</strong> Followers you know</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card end -->
+                
+                </div>
+
+                <button class="bg-gray-600 rounded-full w-24 h-8 text-white font-semibold"
+                    >
+                    <div class="flex gap-3 justify-center items-center">
+                        <span>
+                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+                            </svg>
+                        </span>
+                        <span class="text-sm">Settings</span>
+                    </div>
+                </button>
+            </div>
+
+
+            <div class="flex-1 overflow-y-auto p-4 space-y-6 messages-list">
+                <!-- 初始消息示例 -->
+                <li>
+                    <!-- Messages -->
+                    <div class="flex gap-4 max-w-2xl">
+                        <img src="https://res.cloudinary.com/djv4xa6wu/image/upload/v1737831467/abhiraj_tdwxdf.webp"
+                            alt="User" class="w-10 h-10 rounded-xl" />
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="font-semibold">ARK</span>
+                                <span class="text-xs text-gray-400">09:20</span>
+                            </div>
+
+                            <div class="bg-gray-100 rounded-xl p-4">
+                                <p>I added new flows to our design system. Now you can use them for your projects!</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- More messages -->
+                    <div class="flex gap-4 max-w-2xl ml-auto">
+                        <div class="flex-1">
+                            <div class="flex items-center justify-end gap-2 mb-1">
+                                <span class="font-semibold">You</span>
+                                <span class="text-xs text-gray-400">09:27</span>
+                            </div>
+                            <div class="bg-primary bg-opacity-20 rounded-xl p-4">
+                                <p>Abhi, my congratulations! I will be glad to work with you on a new project 😊</p>
+                            </div>
+                        </div>
+                        <img src="https://res.cloudinary.com/djv4xa6wu/image/upload/v1735722161/AbhirajK/Abhirajk3.webp"
+                            alt="You" class="w-10 h-10 rounded-xl" />
+                    </div>
+                </li>
+            </div>
+
+
+
+            <footer class="p-4 border-t border-gray-300">
+                <form class="message-form">
+                    <div class="flex items-center gap-2 bg-green-100 rounded-xl p-2">
+                        <button class="p-2 hover:bg-gray-700 rounded-lg text-primary">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+                            </svg>
+                        </button>
+                        <input type="text" placeholder="Your message" 
+                            class="message-input flex-1 bg-transparent focus:outline-none text-gray-700 placeholder-gray-400" />
+                        <button type="submit" class="p-2 hover:bg-gray-700 rounded-lg text-primary">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </footer>
+            </form>
+        </main>
+
+
+        <!-- Right Sidebar -->
+
+    </div>
+
+    <script src="../static/js/chat-page.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        const messagesList = document.querySelector('.messages-list');
+        const messageForm = document.querySelector('.message-form');
+        const messageInput = document.querySelector('.message-input');
+
+        // 添加新的函数用于填充输入框
+        function addToInputText(text) {
+            messageInput.value = text;
+            messageInput.focus();  // 让输入框获得焦点
+        }
+
+        messageForm.addEventListener('submit', (event) => {
+            event.preventDefault();   // 阻止表单提交导致页面刷新
+
+            const message = messageInput.value.trim();  // 获取用户输入的问题
+            if (message.length === 0) {                 // 如果问题为空，不执行任何操作
+                return;
+            }
+
+            const messageItem = document.createElement('li');
+            messageItem.classList.add('message', 'sent');
+            messageItem.style.listStyleType = 'none';  // 在创建新消息元素后添加这行
+            messageItem.innerHTML = `
+                <div class="flex gap-4 max-w-2xl ml-auto">
+                        <div class="flex-1">
+                            <div class="flex items-center justify-end gap-2 mb-1">
+                                <span class="font-semibold">You</span>
+                                <span class="text-xs text-gray-400">09:27</span>
+                            </div>
+                            <div class="bg-primary bg-opacity-20 rounded-xl p-4">
+                                <p>${message}</p>
+                            </div>
+                        </div>
+                        <img src="https://res.cloudinary.com/djv4xa6wu/image/upload/v1735722161/AbhirajK/Abhirajk3.webp"
+                            alt="You" class="w-10 h-10 rounded-xl" />
+                    </div>`;
+            messagesList.appendChild(messageItem);
+
+            messageInput.value = '';    // 发送消息后清空输入框
+
+            fetch('/chatbot', {   // 发送 POST 请求到后端 '/chat' 路由
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({
+                    'message': message
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    const response = data.response;
+                    const messageItem = document.createElement('li');
+                    messageItem.style.listStyleType = 'none';  // 去掉列表项的小点
+                    messageItem.classList.add('message', 'received');
+                    messageItem.innerHTML = `
+                    <div class="flex gap-4 max-w-2xl">
+                        <img src="https://res.cloudinary.com/djv4xa6wu/image/upload/v1737831467/abhiraj_tdwxdf.webp"
+                            alt="Bot" class="w-10 h-10 rounded-xl" />
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="font-semibold">Chat</span>
+                                <span class="text-xs text-gray-400">${new Date().toLocaleTimeString()}</span>
+                            </div>
+                            <div class="bg-gray-100 rounded-xl p-4">
+                                <p>${response}</p>
+                            </div>
+                        </div>
+                    </div>`;
+                    messagesList.appendChild(messageItem);
+                });
+        });
+    </script>
+
+
+</body>
+
+</html>

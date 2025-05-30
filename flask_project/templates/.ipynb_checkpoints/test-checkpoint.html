@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta charset="utf-8">
+    <title>后台-首页-本周</title>
+
+    <script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+    <!-- 引入上面两个文件 -->
+    <style>
+    </style>
+</head>
+
+<body>
+    <!-- 开始引入echarts图表 -->
+    <div id="main" style="width: 410px;height:380px;position:absolute;top:25%;left:25%;"></div>/*先做个放图表的容器*/
+
+    <script type="text/javascript">
+        // <!-- 到官网直接复制图表代码然后粘贴在下方 -->
+        var myChart = echarts.init(document.getElementById('main'));
+        option = {
+            tooltip: {
+                trigger: 'axis'
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+                axisLine: {
+                    lineStyle: {
+                        color: "#999"
+                    }
+                }
+            }],
+            yAxis: [{
+                min: 0, //y轴的最小值
+                max: 600, //y轴最大值
+                interval: 100, //值之间的间隔
+                type: 'value',
+                splitNumber: 4,
+                splitLine: {
+                    lineStyle: {
+                        type: 'dashed',
+                        color: '#DDD'
+                    }
+                },
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: "#333"
+                    },
+                },
+                nameTextStyle: {
+                    color: "#999"
+                },
+                splitArea: {
+                    show: false
+                }
+            }],
+            series: [{
+                name: '访问量',
+                type: 'line',
+                data: [464, 342, 419, 306, 423, 385, 566],
+                lineStyle: {
+                    normal: {
+                        width: 8,
+                        color: {
+                            type: 'linear',
+
+                            colorStops: [{
+                                offset: 0,
+                                color: '#A9F387' // 0% 处的颜色
+                            }, {
+                                offset: 1,
+                                color: '#48D8BF' // 100% 处的颜色
+                            }],
+                            globalCoord: false // 缺省为 false
+                        },
+                        shadowColor: 'rgba(72,216,191, 0.3)',
+                        shadowBlur: 10,
+                        shadowOffsetY: 20
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#fff',
+                        borderWidth: 10,
+
+                        borderColor: "#A9F387"
+                    }
+                },
+                smooth: true
+            }]
+        };
+        // 粘贴代码到此为止
+
+        myChart.setOption(option);//注意：必须加上此行
+    </script>
+    </div>
+    <!-- 引入图表结束 -->
+
+</body>
+
+</html>

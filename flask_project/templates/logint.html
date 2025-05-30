@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="h-screen">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="../static/css/font.css">
+    <link rel="shortcut icon" href="../static/images/global/logos/primary-logo.svg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../static/components/main-footer.js"></script>
+</head>
+
+{% for message in get_flashed_messages() %}
+<div class="bg-red-200 px-6 py-4 mx-2 my-4 rounded-md text-lg flex items-center mx-auto max-w-lg">
+    <svg viewBox="0 0 24 24" class="text-red-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+        <path fill="currentColor"
+            d="M11.983,0a12.206,12.206,0,0,0-8.51,3.653A11.8,11.8,0,0,0,0,12.207,11.779,11.779,0,0,0,11.8,24h.214A12.111,12.111,0,0,0,24,11.791h0A11.766,11.766,0,0,0,11.983,0ZM10.5,16.542a1.476,1.476,0,0,1,1.449-1.53h.027a1.527,1.527,0,0,1,1.523,1.47,1.475,1.475,0,0,1-1.449,1.53h-.027A1.529,1.529,0,0,1,10.5,16.542ZM11,12.5v-6a1,1,0,0,1,2,0v6a1,1,0,1,1-2,0Z">
+        </path>
+    </svg>
+    <span class="text-red-800"> {{ message }} </span>
+</div>
+{% endfor %}
+{% block content %}
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- source:https://codepen.io/owaiswiz/pen/jOPvEPB -->
+<div class="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
+    <div class="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+        <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
+            <div>
+                <img src="../static/images/logo.jpg"
+                    class="w-32 mx-auto" />
+            </div>
+            <div class="mt-12 flex flex-col items-center">
+                <h1 class="text-2xl xl:text-3xl font-extrabold">
+                    登陆
+                </h1>
+                <div class="w-full flex-1 mt-8">
+
+
+                    <form class="mt-8 space-y-6" action="/login" method="POST">
+                        <div class="mx-auto max-w-xs">
+                            <input
+                                class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                                type="phone" placeholder="输入您的电话" id="phone" name="phone" />
+                            <input
+                                class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                                type="password" placeholder="密码" id="password" name="password" />
+                            <button type="submit"
+                                class="mt-5 tracking-wide font-semibold bg-teal-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                                <svg class="w-6 h-6 -ml-2" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                                    <circle cx="8.5" cy="7" r="4" />
+                                    <path d="M20 8v6M23 11h-6" />
+                                </svg>
+                                <span class="ml-3">
+                                    登陆
+                                </span>
+                            </button>
+                            <p class="mt-6 text-xs text-gray-600 text-center">
+                                如果您还没有账号，可以
+                                <a href="/register" class="border-b border-gray-500 border-dotted">
+                                    注册
+                                </a>
+                            </p>
+                        </div>
+                </div>
+                </from>
+            </div>
+        </div>
+        <div class="flex-1 bg-indigo-100 text-center hidden lg:flex">
+            <div class="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
+                style="background-image: url('https://storage.googleapis.com/devitary-image-host.appspot.com/15848031292911696601-undraw_designer_life_w96d.svg');">
+            </div>
+        </div>
+    </div>
+</div>

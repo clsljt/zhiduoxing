@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+{% for message in get_flashed_messages() %}
+<div class="bg-red-200 px-6 py-4 mx-2 my-4 rounded-md text-lg flex items-center mx-auto max-w-lg">
+    <svg viewBox="0 0 24 24" class="text-red-600 w-5 h-5 sm:w-5 sm:h-5 mr-3">
+        <path fill="currentColor"
+            d="M11.983,0a12.206,12.206,0,0,0-8.51,3.653A11.8,11.8,0,0,0,0,12.207,11.779,11.779,0,0,0,11.8,24h.214A12.111,12.111,0,0,0,24,11.791h0A11.766,11.766,0,0,0,11.983,0ZM10.5,16.542a1.476,1.476,0,0,1,1.449-1.53h.027a1.527,1.527,0,0,1,1.523,1.47,1.475,1.475,0,0,1-1.449,1.53h-.027A1.529,1.529,0,0,1,10.5,16.542ZM11,12.5v-6a1,1,0,0,1,2,0v6a1,1,0,1,1-2,0Z">
+        </path>
+    </svg>
+    <span class="text-red-800"> {{ message }} </span>
+</div>
+{% endfor %}
+{% block content %}
+{% endblock %}
+
+<body class="bg-teal-100">
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="max-w-[440px] w-full bg-white rounded px-8 py-10" x-data="signUpForm()">
+            <!-- Logo -->
+            <div>
+                <img src="../static/images/logo.jpg" class="w-32 mx-auto" />
+            </div>
+            <!-- Header -->
+            <!-- <h2 class="text-l font-normal text-center mb-2 font-bold">Register</h2> -->
+            <p class="text-gray-500 text-center text-lg mb-8">
+                注册 智多星 账号加入我们
+            </p>
+
+            <!-- Form -->
+            <form class="space-y-5" action="/register" method="POST">
+                <div>
+                    <input id="phone" name="phone" type="phone" placeholder="您的电话"
+                        class="w-full px-4 py-3.5 text-lg border border-2 border-gray-200 rounded focus:outline-none focus:border-rose-500 placeholder-gray-400" />
+                </div>
+                <div>
+                    <input id="name" name="name" type="name" placeholder="您的姓名"
+                        class="w-full px-4 py-3.5 text-lg border border-2 border-gray-200 rounded focus:outline-none focus:border-rose-500 placeholder-gray-400" />
+                </div>
+                <div>
+                    <input id="email" name="email" type="email" placeholder="您的邮箱"
+                        class="w-full px-4 py-3.5 text-lg border border-2 border-gray-200 rounded focus:outline-none focus:border-rose-500 placeholder-gray-400" />
+                </div>
+
+                <div class="relative">
+                    <input id="password" name="password" type="password" :type="showPwd ? 'text' : 'password'"
+                        x-model="form.password" placeholder="密码"
+                        class="w-full px-4 py-3.5 text-lg border border-2 border-gray-200 rounded focus:outline-none focus:border-rose-500 placeholder-gray-400" />
+                    <button type="button" @click="showPwd = !showPwd" class="absolute right-3 top-1/2 -translate-y-1/2">
+                        <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>
+                    </button>
+                </div>
+
+
+                <select id="identity" name="identity" type="identity"
+                    class="w-full px-4 py-3.5 text-lg border border-2 border-gray-200 rounded focus:outline-none focus:border-rose-500 text-gray-500 appearance-none bg-white">
+                    <option value="">您的身份</option>
+                    <option value="0">学生</option>
+                    <option value="1">教职工</option>
+                </select>
+
+                <select id="school" name="school" type="school"
+                    class="w-full px-4 py-3.5 text-lg border border-2 border-gray-200 rounded focus:outline-none focus:border-rose-500 text-gray-500 appearance-none bg-white">
+                    <option value="">您的学院</option>
+                    <option value="1">勤信荣誉学院</option>
+                    <option value="2">计算机学院</option>
+                    <option value="3">管理科学与工程学院</option>
+                    <option value="4">公共管理与传媒学院</option>
+                    <option value="5">商学院</option>
+                    <option value="6">自动化学院</option>
+                    <option value="7">机械学院</option>
+                    <option value="8">其他学院或部门</option>
+
+                </select>
+
+                <button type="submit"
+                    class="w-full bg-teal-500 text-white py-4 px-6 rounded text-lg hover:bg-rose-800 transition-colors mt-6"
+                    :disabled="isLoading">
+                    注册
+                </button>
+            </form>
+            <p class="mt-6 text-xs text-gray-600 text-center">
+                如果您已经拥有账号，可以
+                <a href="/login" class="border-b border-gray-500 border-dotted">
+                    登陆
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function signUpForm() {
+            return {
+                form: {
+                    email: "",
+                    password: "",
+                    firstName: "",
+                    lastName: "",
+                    country: "",
+                    dob: "",
+                    marketing: false,
+                },
+                showPwd: false,
+                isLoading: false,
+
+                init() {
+                    IMask(this.$refs.dobInput, {
+                        mask: "DD/MM/YYYY",
+                        blocks: {
+                            DD: { mask: IMask.MaskedRange, from: 1, to: 31 },
+                            MM: { mask: IMask.MaskedRange, from: 1, to: 12 },
+                            YYYY: { mask: IMask.MaskedRange, from: 1900, to: new Date().getFullYear() },
+                        },
+                    });
+                },
+            };
+        }
+    </script>
+</body>
+
+</html>
