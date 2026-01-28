@@ -1,5 +1,6 @@
 ## 项目介绍
 使用Langchian实现Rag，Python MCP SDK 实现本地化Agent
+![架构](./zhiduoxing.jpg)
 
 ## 安装依赖
 安装mysql，在terminal运行：
